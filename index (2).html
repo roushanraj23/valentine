@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will you be my Valentine?</title>
+  <style>
+    body {
+      background: #f8c8d8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 350px;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 100px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background: #ddd;
+      position: absolute;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Will you be my Valentine? 💖</h2>
+
+    <div class="buttons">
+      <button id="yes">Yes</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+<script>
+  const noBtn = document.getElementById("no");
+  const yesBtn = document.getElementById("yes");
+
+  noBtn.addEventListener("mouseover", () => {
+    // Move NO button randomly
+    const x = Math.random() * 300 - 150; // bigger jump
+    const y = Math.random() * 150 - 75;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+    // Make YES bigger
+    const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+    yesBtn.style.fontSize = (currentSize + 4) + "px";
+  });
+
+  yesBtn.addEventListener("click", () => {
+    document.body.innerHTML = "<h1>YAY 💕 I knew it!</h1>";
+  });
+</script>
+
+</body>
+</html>
